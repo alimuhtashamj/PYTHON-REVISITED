@@ -1,0 +1,104 @@
+# Problem: Song Search Backend
+
+## Problem Statement
+
+You're building the backend for a very small music application.
+
+The application already has two dictionaries.
+
+### 1. `title_index`
+
+Maps a song title to its unique song ID.
+
+```python
+title_index = {
+    "Believer": 101,
+    "Thunder": 102,
+    "Demons": 103
+}
+```
+
+### 2. `songs_by_id`
+
+Maps a song ID to the complete song information.
+
+```python
+songs_by_id = {
+    101: {
+        "title": "Believer",
+        "artist": "Imagine Dragons",
+        "duration": "3:24"
+    },
+    102: {
+        "title": "Thunder",
+        "artist": "Imagine Dragons",
+        "duration": "3:07"
+    },
+    103: {
+        "title": "Demons",
+        "artist": "Imagine Dragons",
+        "duration": "2:57"
+    }
+}
+```
+
+## Requirement
+
+Implement the backend logic for the following user action:
+
+1. The user types a song title into the search bar.
+2. Example input:
+
+```text
+Thunder
+```
+
+3. The program should:
+   - Find the corresponding song ID using `title_index`.
+   - Use that ID to retrieve the complete song information from `songs_by_id`.
+   - Display the complete song information.
+
+## Expected Output
+
+If the song exists:
+
+```text
+Title: Thunder
+Artist: Imagine Dragons
+Duration: 3:07
+```
+
+If the song does not exist:
+
+```text
+Song not found.
+```
+
+## Data Flow
+
+```text
+User Input
+    │
+    ▼
+"Thunder"
+    │
+    ▼
+title_index
+    │
+    ▼
+102
+    │
+    ▼
+songs_by_id
+    │
+    ▼
+{
+    title,
+    artist,
+    duration
+}
+    │
+    ▼
+Display to the user
+```
+
