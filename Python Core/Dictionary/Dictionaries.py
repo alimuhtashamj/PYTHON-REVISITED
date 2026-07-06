@@ -21,14 +21,12 @@ songs_by_id = {
     }
 }
 user_input = input('Enter Song Name')
-for i in title_index:
-    if i == user_input:
-        song_id =title_index[i]
-        print(song_id)
-    else:
-        print('No results found')
-    for j in songs_by_id:
-        if j == user_input:
-            print(j)
+if user_input in title_index:
+    songID= title_index[user_input]
+    song_details = songs_by_id[songID]
+    print(song_details)
+else:
+    print('No result found')
+    
 
     
