@@ -1,32 +1,4 @@
 student = {
-    "name": None ,
-    "marks":[10,30,40,90],
-    "bonus": 5 }
-
-def validate_student(student):
-    student_name = validate_name(student['name'])
-    marks = are_marks_valid(student['marks'])
-    bonus = is_valid_bonus(student["bonus"])
-    return student_name, marks, bonus
-
-def validate_name(name):
-    if name is None:
-        print('Student Name not Found')
-        return 
-    if len(name) == 0:
-        print('Please add the name') 
-        return
-    return name 
-
-
-def is_valid_bonus(value):
-    if value<0 or value >100 : return {value},'is out of range (0-100), Please add value in range'
-    return value 
-    # return 0 <=value <=100
-
-
-
-student = {
     "name": "Ali",
     "marks":[10,-30,40,90],
     "bonus": 5 }
@@ -38,6 +10,7 @@ def are_marks_valid(score):
         error = {}
         if value < 0:
             print('Add score in positive numbers')
+            
             error['message'] = 'Add score in positive numbers'
             error['value'] = value
             result.append(error)
@@ -56,15 +29,3 @@ def are_marks_valid(score):
     return result
 
 are_marks_valid(student['marks'])
-
-
-# def is_valid_name(check_name):
-#     if len(check_name) == 0:
-#         print('Please add the name')
-#     else:
-#         return check_name 
-    
-# is_valid_name(student['name'])
-
-
-validate_student(student)
