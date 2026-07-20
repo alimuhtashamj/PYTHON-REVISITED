@@ -28,7 +28,7 @@ def name_is_valid(employee_name):
             return errors
 
     print(employee_name)
-    return employee_name
+    return employee_name, errors
 
 name_is_valid(name)
    
