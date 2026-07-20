@@ -1,23 +1,37 @@
-
-while True:
-    employee_name = input('Add employee name').strip()
+name = 'Ali'
+def name_is_valid(employee_name):
     errors = []
+    # if not isinstance(employee_name, str):
+    #     errors.append('Not a string')
+    #     print('This is not a valid name')
+    #     return errors
+    if employee_name.lower() == 'done':
+        return
+    if employee_name.strip() == '':
+        errors.append('Empty')
+        print('Add the employee name')
+        return errors
+
+    # check if the string is a number
     try:
-       employee_name = float(employee_name)
-       errors.append(employee_name)
-       print('This is a number, Please add valid name')
-       continue
+        float(employee_name)
+        errors.append('Numeric')
+        print('This is a number, please add a valid name')
+        return errors
     except ValueError:
         pass
-    if employee_name == '':
-        errors.append('Empty')
-        print('Add the employee name')    
-        continue
-    if employee_name.lower() == 'done':
-        break
-    else:
-       print(employee_name)
-       break
+
+    for ch in employee_name:
+        if ch.isdigit():
+            errors.append('Contains digit')
+            print('Employee name contains a digit')
+            return errors
+
+    print(employee_name)
+    return employee_name
+
+name_is_valid(name)
+   
         
             
             
