@@ -1,4 +1,4 @@
-name = 'Ali'
+name = 'Ali!'
 def name_is_valid(employee_name):
     errors = []
     # if not isinstance(employee_name, str):
@@ -20,12 +20,21 @@ def name_is_valid(employee_name):
         return errors
     except ValueError:
         pass
+    
 
     for ch in employee_name:
         if ch.isdigit():
             errors.append('Contains digit')
             print('Employee name contains a digit')
             return errors
+        else:
+           if not ch.isalnum():
+               errors.append(employee_name)
+               print('Employee name has a special character')
+               return errors
+           else:
+               pass
+            
 
     print(employee_name)
     return employee_name, errors
