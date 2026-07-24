@@ -1,4 +1,4 @@
-name = 'Ali!'
+
 def name_is_valid(employee_name):
     errors = []
     # if not isinstance(employee_name, str):
@@ -6,7 +6,7 @@ def name_is_valid(employee_name):
     #     print('This is not a valid name')
     #     return errors
     if employee_name.lower() == 'done':
-        return None
+        return
     if employee_name.strip() == '':
         errors.append('Empty')
         print('Add the employee name')
@@ -52,8 +52,6 @@ def name_is_valid(employee_name):
         return errors
     
     return employee_name
-
-name_is_valid(name)
    
         
             
