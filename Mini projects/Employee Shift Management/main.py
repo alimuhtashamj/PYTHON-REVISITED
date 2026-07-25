@@ -1,19 +1,30 @@
 from validate_names import name_is_valid
 
-employee = {}
+employee_data = []
+
+
 def caller():
     while True:
-        add_employee_name = input("Add employee's name")
-        
-        employee['employee name'] = add_employee_name
-        results = name_is_valid(employee['employee name'])
+        employee = {}
+
+        employee_name = input("Add employee's name: ")
+
+        results = name_is_valid(employee_name)
+
         if results is None:
             break
-        elif isinstance(results, list):
-            print(results)
-        else:
-         continue
-     
 
-output = caller()
-print(output)
+        employee["name"] = employee_name
+        employee["errors"] = results
+
+        employee_data.append(employee)
+
+    return employee_data
+
+
+employees = caller()
+
+print("\nEmployee Records\n")
+
+for employee in employees:
+    print(employee)
