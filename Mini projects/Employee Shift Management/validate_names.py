@@ -43,8 +43,5 @@ def name_is_valid(employee_name):
         else:
             if "Contains special character" not in errors:
                 errors.append("Contains special character")
-
-    return errors
-
-            
+    return errors            
             
