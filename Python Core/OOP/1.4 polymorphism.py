@@ -20,7 +20,7 @@ class SMSNotification(Notification):
 class PushNotification(Notification):
     def __init__(self, device_id):
         self.device_id = device_id
-            
+                 
     def send(self, message):
         print(f'{self.device_id} sends you :{message}')
         
