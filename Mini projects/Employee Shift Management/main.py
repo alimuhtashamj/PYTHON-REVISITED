@@ -1,10 +1,15 @@
 from validate_names import name_is_valid
 from validate_ages import validate_age
 
-employee_data = []
+employee_data = {}
 
 
 def caller():
+    if not employee_data:
+        employee_id = 1000
+    else:    
+        largest_id  = max(employee_data)
+        employee_id = largest_id + 1
     while True:
         employee_name = input("Add employee's name: ")
 
@@ -25,25 +30,21 @@ def caller():
             if age_result == "Invalid age":
                 print("Invalid age. Please enter an age between 18 and 65.")
                 continue
-
+        
+            employee = {
+                 "name": name_result,
+                 "employee_age": age_result
+             }   
+            employee_data[employee_id] = employee 
+            employee_id+= 1
             break
+        
+        
 
-        employee = {
-            "name": name_result,
-            "employee_age": age_result
-        }
-        employee_id = 1000
-        for id in employee:
-            employee_id += 1
-            
-        employee_data.append(employee)
 
     return employee_data
 
 
 employees = caller()
+print(employees)
 
-print("\nEmployee Records\n")
-
-for employee in employees:
-    print(employee)
