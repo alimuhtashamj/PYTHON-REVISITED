@@ -12,4 +12,3 @@ def validate_age(age):
         return 'Invalid age'
 
     return age 
-print(validate_age(88))
