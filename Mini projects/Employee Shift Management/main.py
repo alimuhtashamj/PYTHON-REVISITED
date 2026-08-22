@@ -1,5 +1,5 @@
 from validate_names import name_is_valid
-
+from validate_ages import validate_age
 employee_data = []
 
 
@@ -13,9 +13,22 @@ def caller():
 
         if results is None:
             break
-
+        if results == "Empty":
+            continue
+        if results == "Numeric":
+            continue
+        if results == "Contains digit":
+            continue
+        if results == 'Contains special characters':
+            continue
+#continue here actually starts the loop all over again and doesnt
+#let python append the name in the dictionary
+    
         employee["name"] = employee_name
-        employee["errors"] = results
+        age = input('Add employee age')
+        age_validation = validate_age(age)
+        if age_validation != 'Invalid age':
+            employee["employee_age"] = age_validation
 
         employee_data.append(employee)
 
@@ -26,5 +39,3 @@ employees = caller()
 
 print("\nEmployee Records\n")
 
-for employee in employees:
-    print(employee)
