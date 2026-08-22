@@ -32,7 +32,10 @@ def caller():
             "name": name_result,
             "employee_age": age_result
         }
-
+        employee_id = 1000
+        for id in employee:
+            employee_id += 1
+            
         employee_data.append(employee)
 
     return employee_data
