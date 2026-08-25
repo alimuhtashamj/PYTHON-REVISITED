@@ -1,50 +1,23 @@
-from validate_names import name_is_valid
-from validate_ages import validate_age
-
-employee_data = {}
+from caller_trial import caller
+from manager import Manager
 
 
-def caller():
-    if not employee_data:
-        employee_id = 1000
-    else:    
-        largest_id  = max(employee_data)
-        employee_id = largest_id + 1
+def main():
+    manager = Manager()
     while True:
-        employee_name = input("Add employee's name: ")
-
-        name_result = name_is_valid(employee_name)
-
-        if name_result is None:
+        employee = caller()
+        if employee is None:
             break
+        manager.add_employee(employee)
 
-        if name_result != employee_name:
-            print(f"Invalid name: {name_result}")
-            continue
-
-        while True:
-            age = input("Add employee age: ")
-
-            age_result = validate_age(age)
-
-            if age_result == "Invalid age":
-                print("Invalid age. Please enter an age between 18 and 65.")
-                continue
-        
-            employee = {
-                 "name": name_result,
-                 "employee_age": age_result
-             }   
-            employee_data[employee_id] = employee 
-            employee_id+= 1
-            break
-        
-        
+    # Print stored employees after input ends
+    if manager.employee_data:
+        print("Stored employee info:")
+        for emp_id, emp in manager.employee_data.items():
+            print(f"ID: {emp_id}, Name: {emp['name']}, Age: {emp['age']}")
+    else:
+        print("No employees were added.")
 
 
-    return employee_data
-
-
-employees = caller()
-print(employees)
-
+if __name__ == "__main__":
+    main()

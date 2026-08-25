@@ -11,7 +11,8 @@ def caller():
         name_result = name_is_valid(employee_name)
 
         if name_result is None:
-            break
+            break 
+        # If a function reaches the end without executing a return, Python automatically returns None.
 
         if name_result != employee_name:
             print(f"Invalid name: {name_result}")
