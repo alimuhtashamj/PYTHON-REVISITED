@@ -1,0 +1,10 @@
+def validate_input(emp_id):
+    try: 
+        emp_id = int(emp_id)
+    except ValueError:
+        return 'Invalid id'
+    lower_bound = 1
+    if id < lower_bound:
+        return 'Invalid id'
+
+    return emp_id
