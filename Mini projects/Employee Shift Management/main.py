@@ -1,6 +1,6 @@
 from input import caller
 from database import initialize_database, add_employee_db, search_employee
-from validate_inpt
+from validate_input_search import validate_input
 
 
 def menu():
@@ -32,7 +32,9 @@ def main():
 
         elif choice == "2":
             ask_for_id = input('Add user id')
-            validate_input_search
+            validated_emp_id = validate_input(ask_for_id)
+            search_employee(validated_emp_id)
+            
             pass
 
         elif choice == "3":

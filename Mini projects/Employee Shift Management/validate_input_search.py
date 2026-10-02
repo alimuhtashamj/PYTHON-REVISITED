@@ -3,8 +3,7 @@ def validate_input(emp_id):
         emp_id = int(emp_id)
     except ValueError:
         return 'Invalid id'
-    lower_bound = 1
-    if id < lower_bound:
+    if id < 0:
         return 'Invalid id'
 
     return emp_id
