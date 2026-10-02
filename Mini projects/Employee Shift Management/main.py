@@ -1,5 +1,5 @@
 from input import caller
-from database import initialize_database, add_employee
+from database import initialize_database, add_employee_db
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
         name, age = employee
 
-        add_employee(name=name, age=age)
+        add_employee_db(name=name, age=age)
 
 
 if __name__ == "__main__":
